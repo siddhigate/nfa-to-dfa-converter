@@ -1,4 +1,4 @@
-# nfa-to-dfa-converter
+# NFA to DFA Converter
 A python program which converts NFA to DFA
 
 ## Input
