@@ -5,7 +5,6 @@ import pandas as pd
 
 # READING NFA TABLE FROM EXCEL FILE
 nfa = pd.read_excel(r'input.xlsx', sheet_name='Sheet1', index_col=0)
-print("Excel input: \n",nfa)
 
 # READING NUMBER OF TRANSITIONS STATE AND FINAL STATE FROM EXCEL
 info = pd.read_excel(r'input.xlsx', sheet_name='Sheet2')
@@ -17,7 +16,7 @@ nfa_final_state = [x for x in final.split()]
 # converting nfa to dictionary
 nfa_t = nfa.transpose()
 nfa_dict = nfa_t.to_dict()
-print("NFA table ", nfa_t)
+print("NFA table\n", nfa_t)
 
 # initialization
 new_states_list = []
@@ -75,14 +74,12 @@ while len(new_states_list) != 0:
             new_states_list.append(keys[0])
 
 
-print("dfa dict, ",dfa)
 # converting dfa dict to table
 dfa_table = pd.DataFrame(dfa)
 
-print("dfa df ",dfa_table)
 dfa_final = dfa_table.transpose()
 
-
+print("DFA Table:\n")
 print("dfa",dfa_final)
 # writing output to excel file
 dfa_final.to_excel("output.xlsx", sheet_name="Sheet1")
